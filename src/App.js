@@ -3,6 +3,7 @@ import axios from "axios";
 import './App.css';
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Register from "./Register";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 

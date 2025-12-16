@@ -11,7 +11,7 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://127.0.0.1:4000/register", { user: register });
+      await axios.post("http://localhost:4000/register", { user: register });
       alert("Successfully registered!");
       navigate("/login");
     } catch (err) {
@@ -21,12 +21,46 @@ function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <input name="username" onChange={update} value={register.username} placeholder="Username" />
-      <input name="email" onChange={update} value={register.email} placeholder="Email" />
-      <input name="password" onChange={update} value={register.password} placeholder="Password" />
-      <button type="submit">Register</button>
-    </form>
+    <div className="d-flex justify-content-center align-items-center vh-100">
+      <div className="card p-4 shadow-sm" style={{ maxWidth: "400px", width: "100%" }}>
+        <h3 className="card-title text-center mb-3">Register</h3>
+        <form onSubmit={handleRegister}>
+          <div className="mb-3">
+            <input
+              className="form-control"
+              name="username"
+              onChange={update}
+              value={register.username}
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              className="form-control"
+              name="email"
+              type="email"
+              onChange={update}
+              value={register.email}
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              className="form-control"
+              name="password"
+              type="password"
+              onChange={update}
+              value={register.password}
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-success w-100">Register</button>
+        </form>
+      </div>
+    </div>
   );
 }
 
